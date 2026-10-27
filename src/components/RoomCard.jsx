@@ -10,6 +10,7 @@ export default function RoomCard({
     alt,
     guests,
     price,
+    unit,
     id,
     className = '',
 }) {
@@ -37,10 +38,12 @@ export default function RoomCard({
                 </h4>
 
                 {/* Guests */}
-                <div className="flex items-center gap-1.5 text-gray-500 text-sm">
-                    <MdPerson className="text-[16px]" />
-                    <span>{guests} guests</span>
-                </div>
+                {guests ? (
+                    <div className="flex items-center gap-1.5 text-gray-500 text-sm">
+                        <MdPerson className="text-[16px]" />
+                        <span>{guests} guests</span>
+                    </div>
+                ) : null}
 
                 {/* Price — nowrap prevents line break */}
                 <div className="flex items-baseline gap-2">
@@ -48,7 +51,7 @@ export default function RoomCard({
                         ₹ {new Intl.NumberFormat("en-IN").format(price)}
                     </span>
                     <span className="text-sm text-gray-500 whitespace-nowrap">
-                        + GST Per Night
+                        + GST {unit ? (unit.toLowerCase() === 'per head' ? 'Per Head' : unit) : 'Per Night'}
                     </span>
                 </div>
 

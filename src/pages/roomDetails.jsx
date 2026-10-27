@@ -141,16 +141,22 @@ const RoomDetails = () => {
                 <Heading className="mb-6 text-3xl md:text-4xl font-serif text-gray-900">
                     {room.name}
                 </Heading>
-                <div className="flex flex-wrap items-center gap-8 mb-6 text-gray-800 font-medium">
-                    <div className="flex items-center gap-3">
-                        <MdOutlineMeetingRoom className="w-5 h-5 text-gray-700" />
-                        <span>{room.basicInfo.rooms} Rooms</span>
+                {(room.basicInfo.rooms || room.basicInfo.maxGuests) ? (
+                    <div className="flex flex-wrap items-center gap-8 mb-6 text-gray-800 font-medium">
+                        {room.basicInfo.rooms ? (
+                            <div className="flex items-center gap-3">
+                                <MdOutlineMeetingRoom className="w-5 h-5 text-gray-700" />
+                                <span>{room.basicInfo.rooms} {room.basicInfo.rooms === 1 ? 'Room' : 'Rooms'}</span>
+                            </div>
+                        ) : null}
+                        {room.basicInfo.maxGuests ? (
+                            <div className="flex items-center gap-3">
+                                <MdOutlinePeople className="w-5 h-5 text-gray-700" />
+                                <span>{room.basicInfo.maxGuests} Guests</span>
+                            </div>
+                        ) : null}
                     </div>
-                    <div className="flex items-center gap-3">
-                        <MdOutlinePeople className="w-5 h-5 text-gray-700" />
-                        <span>{room.basicInfo.maxGuests} Guests</span>
-                    </div>
-                </div>
+                ) : null}
                 <div className="grid grid-cols-1 sm:grid-cols-[1.1fr_1fr] gap-6 mb-6 text-sm sm:text-base text-gray-800">
                     <div className="space-y-3">
                         {room.inclusions.map((inclusion, idx) => (
@@ -190,7 +196,7 @@ const RoomDetails = () => {
                         </span>
 
                         <span className="text-gray-800 font-medium">
-                            per night
+                            {room.basicInfo.unit || "per night"}
                         </span>
                     </div>
                     <div className="flex justify-center px-2">
@@ -294,7 +300,7 @@ const RoomDetails = () => {
                                     guests={r.basicInfo.maxGuests}
                                     alt={r.resolvedCover?.alt ?? r.name}
                                     price={r.basicInfo.pricePerNight}
-
+                                    unit={r.basicInfo.unit}
                                 />
                             </div>
                         ))}

@@ -165,11 +165,11 @@ const TermsConditions = () => {
                             check-in.
                         </li>
                         <li>
-                            50% refund if cancelled between 7 days and 2 days
+                            50% refund if cancelled between 7 days and 3 days
                             before check-in.
                         </li>
                         <li>
-                            No refund for cancellations made within 2 days of
+                            No refund for cancellations made within 3 days of
                             check-in.
                         </li>
                         <li>

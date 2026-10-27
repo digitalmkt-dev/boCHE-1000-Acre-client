@@ -13,13 +13,13 @@ const rooms = [
         basicInfo: {
             rooms: 4,
             maxGuests: 8,
-            pricePerNight: 15000,
+            pricePerNight: 12000,
             currency: "INR",
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -36,8 +36,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
@@ -78,13 +78,13 @@ const rooms = [
         basicInfo: {
             rooms: 2,
             maxGuests: 4,
-            pricePerNight: 12000,
+            pricePerNight: 9000,
             currency: "INR",
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -101,8 +101,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
@@ -149,8 +149,8 @@ const rooms = [
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -167,8 +167,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
@@ -215,8 +215,8 @@ const rooms = [
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -233,8 +233,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
@@ -281,8 +281,8 @@ const rooms = [
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -299,8 +299,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
@@ -347,8 +347,8 @@ const rooms = [
     },
 
     checkTime: {
-        checkIn: "02:00 PM",
-        checkOut: "10:00 AM",
+        checkIn: "2:00 PM",
+        checkOut: "11:00 AM",
     },
 
     inclusions: [
@@ -365,8 +365,8 @@ const rooms = [
         },
         {
             refundPercent: 50,
-            daysBeforeCheckIn: 2,
-            label: "50% refund if cancelled 2 days before check-in.",
+            daysBeforeCheckIn: 3,
+            label: "50% refund if cancelled 3 days before check-in.",
         },
     ],
 
@@ -413,8 +413,8 @@ const rooms = [
     },
 
     checkTime: {
-        checkIn: "02:00 PM",
-        checkOut: "10:00 AM",
+        checkIn: "2:00 PM",
+        checkOut: "11:00 AM",
     },
 
     inclusions: [
@@ -431,8 +431,8 @@ const rooms = [
         },
         {
             refundPercent: 50,
-            daysBeforeCheckIn: 2,
-            label: "50% refund if cancelled 2 days before check-in.",
+            daysBeforeCheckIn: 3,
+            label: "50% refund if cancelled 3 days before check-in.",
         },
     ],
 
@@ -473,13 +473,13 @@ const rooms = [
         basicInfo: {
             rooms: 1,
             maxGuests: 3,
-            pricePerNight: 4000,
+            pricePerNight: 3300,
             currency: "INR",
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -496,8 +496,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
@@ -537,15 +537,14 @@ const rooms = [
         },
 
         basicInfo: {
-            rooms: 1,
-            maxGuests: 1,
-            pricePerNight: 1000,
+            pricePerNight: 1400,
             currency: "INR",
+            unit: "per head",
         },
 
         checkTime: {
-            checkIn: "02:00 PM",
-            checkOut: "10:00 AM",
+            checkIn: "2:00 PM",
+            checkOut: "11:00 AM",
         },
 
         inclusions: [
@@ -562,8 +561,8 @@ const rooms = [
             },
             {
                 refundPercent: 50,
-                daysBeforeCheckIn: 2,
-                label: "50% refund if cancelled 2 days before check-in.",
+                daysBeforeCheckIn: 3,
+                label: "50% refund if cancelled 3 days before check-in.",
             },
         ],
 
