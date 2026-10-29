@@ -408,7 +408,7 @@ const rooms = [
     basicInfo: {
         rooms: 4,
         maxGuests: 8,
-        pricePerNight: 20000,
+        pricePerNight: 18000,
         currency: "INR",
     },
 
