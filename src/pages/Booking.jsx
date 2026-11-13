@@ -84,15 +84,23 @@ function Booking() {
             delete payload.checkin;
             delete payload.checkout;
 
-            const response = await axios.post(`${serverUrl}/submit`, payload);
+            const response = await axios.post(`${serverUrl}/submit`, payload, {
+                timeout: 16000,
+            });
             if (response.data.success) {
                 setShowModal(true);
             } else {
-                setSubmitError("Submission failed. Please try again.");
+                setSubmitError(response.data.message || "Submission failed. Please try again.");
             }
         } catch (error) {
             console.error("Error submitting form:", error);
-            setSubmitError("Unable to reach server. Please try again later.");
+            if (error.code === "ECONNABORTED" || error.response?.status === 503) {
+                setSubmitError("Server is busy. Please try again later.");
+            } else if (error.response?.status >= 500) {
+                setSubmitError("Server error. Please try again later.");
+            } else {
+                setSubmitError("Unable to reach server. Please try again later.");
+            }
         } finally {
             setIsSubmitting(false);
         }
