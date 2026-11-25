@@ -11,7 +11,7 @@ const Boomiputhra = () => {
         <>
             <SEO
                 title="Bhoomiputhra Tea & Coffee Plantations in Wayanad"
-                description="Discover Bhoomiputhra's 600-acre plantation estate in Wayanad, Kerala. Premium tea, coffee, spices, sustainable farming practices, and advanced tea manufacturing facilities."
+                description="Discover Bhoomiputhra's 1000-acre plantation estate in Wayanad, Kerala. Premium tea, coffee, spices, sustainable farming practices, and advanced tea manufacturing facilities."
                 keywords="Wayanad tea plantation, tea estate Wayanad, coffee plantation Wayanad, tea factory Wayanad, Kerala tea plantation, premium tea Kerala, spice plantation Wayanad, sustainable agriculture Kerala, Bhoomiputhra"
                 
             />
@@ -40,7 +40,7 @@ const Boomiputhra = () => {
                         <div className="max-w-5xl opacity-0 animate-fade-in-up delay-200">
                             <img src={bhoomiputhraLogo} alt="Bhoomiputhra Logo" title="Bhoomiputhra Logo" className="mx-auto w-auto max-h-56 md:max-h-80 mb-6 drop-shadow-xl object-contain" />
                             <p className="text-xl md:text-2xl text-white/95  pb-5 mx-auto drop-shadow-md tracking-wide">
-                                A 600-Acre Legacy of Premium Plantations & Excellence in South India
+                                A 1000-Acre Legacy of Premium Plantations & Excellence in South India
                             </p>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const Boomiputhra = () => {
                             </div>
                             <h4 className="text-3xl  text-gray-900 mb-6">Plantation Area</h4>
                             <div className="flex items-baseline gap-3 mb-8">
-                                <span className="text-7xl  text-[#3a5a1c]">600<span className="text-4xl  text-[#3a5a1c]">+</span></span>
+                                <span className="text-7xl  text-[#3a5a1c]">1000<span className="text-4xl  text-[#3a5a1c]">+</span></span>
                                 <span className="text-gray-500 text-xl  uppercase tracking-widest">Acres</span>
                             </div>
                             <p className="text-gray-600 text-lg  leading-relaxed">
@@ -256,7 +256,7 @@ const Boomiputhra = () => {
                             <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.8),rgba(0,0,0,0.2),transparent)] transition-opacity duration-500" />
                             <div className="absolute bottom-10 left-10 right-10">
                                 <h4 className="text-white text-3xl  drop-shadow-md mb-2">Aerial Views</h4>
-                                <p className="text-white/90  text-base">Lush green plantations spanning 600 acres</p>
+                                <p className="text-white/90  text-base">Lush green plantations spanning 1000 acres</p>
                             </div>
                         </div>
 

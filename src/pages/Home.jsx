@@ -799,7 +799,7 @@ function Home() {
                 title="Bhoomiputhra Plantation Logo"
               />
               <p className="leading-relaxed text-justify">
-                Nestled in the mist-covered hills of Wayanad, Kerala, Bhoomiputhra Plantation spans over 600 acres of thriving tea, coffee, cardamom, vanilla, and pepper estates. As the heart of boCHE 1000 Acres, our tea plantation resort in Wayanad offers guests an immersive connection to nature, where scenic landscapes, sustainable farming practices, and authentic plantation experiences come together. Our modern tea factory processes up to 12,000 kg of green leaf daily, blending traditional craftsmanship with advanced technology to create premium teas renowned for their rich aroma and exceptional quality.
+                Nestled in the mist-covered hills of Wayanad, Kerala, Bhoomiputhra Plantation spans over 1000 acres of thriving tea, coffee, cardamom, vanilla, and pepper estates. As the heart of boCHE 1000 Acres, our tea plantation resort in Wayanad offers guests an immersive connection to nature, where scenic landscapes, sustainable farming practices, and authentic plantation experiences come together. Our modern tea factory processes up to 12,000 kg of green leaf daily, blending traditional craftsmanship with advanced technology to create premium teas renowned for their rich aroma and exceptional quality.
               </p>
             </div>
             <div>
