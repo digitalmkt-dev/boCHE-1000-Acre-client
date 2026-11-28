@@ -6,6 +6,7 @@ import { MdDirections } from "react-icons/md";
 import Button from "../components/Button";
 import axios from "axios";
 import SEO from "../components/SEO";
+import TurnstileWidget from "../components/TurnstileWidget";
 function Contact() {
     const {
         register,
@@ -16,18 +17,28 @@ function Contact() {
 
     const [status, setStatus] = useState("idle"); // idle | success | error
     const [errorMsg, setErrorMsg] = useState("");
+    const [turnstileToken, setTurnstileToken] = useState("");
+    const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
     const onSubmit = async (data) => {
+        if (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken) {
+            setStatus("error");
+            setErrorMsg("Please complete the human verification.");
+            return;
+        }
         setStatus("idle");
         setErrorMsg("");
         try {
-            const serverUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
-            await axios.post(`${serverUrl}/contact`, data);
+            const serverUrl = (import.meta.env.VITE_SERVER_URL || "http://localhost:3000").replace(/\/+$/, "");
+            await axios.post(`${serverUrl}/contact`, { ...data, turnstileToken });
             setStatus("success");
             reset();
         } catch (err) {
             setStatus("error");
             setErrorMsg(err.response?.data?.message || "Could not connect to server. Please try again.");
+        } finally {
+            setTurnstileToken("");
+            setTurnstileResetKey((prev) => prev + 1);
         }
     };
 
@@ -238,6 +249,23 @@ function Contact() {
                                     render={({ message }) => (
                                         <p className="text-red-500 text-xs mt-1">⚠ {message}</p>
                                     )}
+                                />
+                            </div>
+
+                            {/* Human Verification */}
+                            <div className="flex justify-end">
+                                <TurnstileWidget
+                                    onVerify={(token) => {
+                                        setTurnstileToken(token);
+                                        if (status === "error") setStatus("idle");
+                                    }}
+                                    onExpire={() => setTurnstileToken("")}
+                                    onError={() => {
+                                        setTurnstileToken("");
+                                        setStatus("error");
+                                        setErrorMsg("Verification failed to load. Please refresh and try again.");
+                                    }}
+                                    resetKey={turnstileResetKey}
                                 />
                             </div>
 

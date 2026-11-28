@@ -537,11 +537,11 @@ function Home() {
       </section >
 
       {/* Banner section */}
-      < section >
+      {/* < section >
         <Suspense fallback={<div className="w-full aspect-16/6 bg-gray-100 animate-pulse" />}>
           <BannerCarousel />
         </Suspense>
-      </section >
+      </section > */}
       {/* Stay cards */}
       < section className="bg-[#F7FDE9] py-20" >
         <div className="max-w-7xl mx-auto px-4">

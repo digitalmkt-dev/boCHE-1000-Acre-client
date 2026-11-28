@@ -8,6 +8,7 @@ import "react-phone-input-2/lib/style.css";
 import Button from "@/components/Button";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import axios from "axios";import SEO from "@/components/SEO";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 
 
@@ -68,14 +69,21 @@ function Booking() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [submitError, setSubmitError] = useState("");
+    const [turnstileToken, setTurnstileToken] = useState("");
+    const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
     const onSubmit = async (data) => {
+        if (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken) {
+            setSubmitError("Please complete the human verification.");
+            return;
+        }
         setIsSubmitting(true);
         setSubmitError("");
         try {
-            const serverUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
+            const serverUrl = (import.meta.env.VITE_SERVER_URL || "http://localhost:3000").replace(/\/+$/, "");
             const payload = {
                 ...data,
+                turnstileToken,
                 dateRange: {
                     checkin: data.checkin,
                     checkout: data.checkout,
@@ -96,6 +104,8 @@ function Booking() {
             console.error("Error submitting form:", error);
             if (error.code === "ECONNABORTED" || error.response?.status === 503) {
                 setSubmitError("Server is busy. Please try again later.");
+            } else if (error.response?.status === 400 || error.response?.status === 403) {
+                setSubmitError(error.response?.data?.message || "Human verification failed. Please try again.");
             } else if (error.response?.status >= 500) {
                 setSubmitError("Server error. Please try again later.");
             } else {
@@ -103,6 +113,8 @@ function Booking() {
             }
         } finally {
             setIsSubmitting(false);
+            setTurnstileToken("");
+            setTurnstileResetKey((prev) => prev + 1);
         }
     };
 
@@ -656,8 +668,24 @@ function Booking() {
                                 </div>
                             </div>
 
+                            {/* Human Verification */}
+                            <div className="flex justify-end mt-6">
+                                <TurnstileWidget
+                                    onVerify={(token) => {
+                                        setTurnstileToken(token);
+                                        setSubmitError("");
+                                    }}
+                                    onExpire={() => setTurnstileToken("")}
+                                    onError={() => {
+                                        setTurnstileToken("");
+                                        setSubmitError("Verification failed to load. Please refresh and try again.");
+                                    }}
+                                    resetKey={turnstileResetKey}
+                                />
+                            </div>
+
                             {/* Submit */}
-                            <div className="flex justify-end items-center gap-4 mt-6">
+                            <div className="flex justify-end items-center gap-4 mt-4">
                                 {submitError && (
                                     <p className="text-red-600 text-sm font-medium">{submitError}</p>
                                 )}

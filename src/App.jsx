@@ -71,7 +71,7 @@ function App() {
             }
           />
 
-          <Route
+          {/* <Route
             path="/packages-and-offers"
             element={
               <Suspense fallback={<GridSkeleton />}>
@@ -87,7 +87,7 @@ function App() {
                 <PackageDetails />
               </Suspense>
             }
-          />
+          /> */}
 
           <Route
             path="/adventures"
